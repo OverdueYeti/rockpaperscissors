@@ -52,24 +52,28 @@ let computerScore = 0;
 let humanScore = 0;
 let result = "";
 
-rspHuman = getHumanChoice();
-rspComputer = getComputerChoice();
 
-console.log(rspComputer);
-console.log(rspHuman);
+for (let i = 0; i < 5; i++){
+    rspHuman = getHumanChoice();
+    rspComputer = getComputerChoice();
+    console.log(rspComputer);
+    console.log(rspHuman);
 
-result = playRound(rspHuman, rspComputer);
-console.log(result);
+    result = playRound(rspHuman, rspComputer);
+    console.log(result);
 
-switch(result) {
-    case "Win":
-        humanScore++;
-        break;
-    case "Lose":
-        computerScore++;
-        break;
-    case "Tie":
-        break;
+    switch(result) {
+        case "Win":
+            humanScore++;
+            break;
+        case "Lose":
+            computerScore++;
+            break;
+        case "Tie":
+            break;
+    }
 }
+
+
 
 console.log("Your score " + humanScore + " Computer score " + computerScore);
