@@ -7,18 +7,69 @@ function getComputerChoice (){
     // return the computers rsp answer
     switch(x) {
         case 1:
-            return "Rock";
+            return "rock";
             break;
         case 2:
-            return "Paper";
+            return "paper";
             break;
         case 3:
-            return "Scissors";
+            return "scissors";
             break;
     }
     
 }
 
-let rsp = ""; // computers rsp pick
-rsp = getComputerChoice();
-console.log(rsp);
+function getHumanChoice(){
+    let rsp = "";
+    rsp = prompt("Choose rock paper or scissors");
+
+    rsp = rsp.toLowerCase();
+
+    if (rsp === "rock" || rsp === "paper" || rsp === "scissors"){
+        return rsp;
+    }else{
+        console.log(rsp + " is not a valid message");
+    }
+}
+
+function playRound(human, computer){
+    if (human == "rock" && computer == "scissors"){
+        return "Win";
+    }else if (human == "scissors" && computer == "paper"){
+        return "Win";
+    }else if (human == "paper" && computer == "rock"){
+        return "Win";
+    }else if (human == computer){
+        return "Tie";
+    }else{
+        return "Lose";
+    } 
+}
+
+let rspComputer = ""; // computers rsp pick
+let rspHuman = "";
+let computerScore = 0;
+let humanScore = 0;
+let result = "";
+
+rspHuman = getHumanChoice();
+rspComputer = getComputerChoice();
+
+console.log(rspComputer);
+console.log(rspHuman);
+
+result = playRound(rspHuman, rspComputer);
+console.log(result);
+
+switch(result) {
+    case "Win":
+        humanScore++;
+        break;
+    case "Lose":
+        computerScore++;
+        break;
+    case "Tie":
+        break;
+}
+
+console.log("Your score " + humanScore + " Computer score " + computerScore);
