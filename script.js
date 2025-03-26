@@ -46,34 +46,61 @@ function playRound(human, computer){
     } 
 }
 
+function handleClick(choice){
+    let rspComputer = getComputerChoice();
+    return playRound(choice, rspComputer);
+};
+
 let rspComputer = ""; // computers rsp pick
 let rspHuman = "";
 let computerScore = 0;
 let humanScore = 0;
 let result = "";
 
-
-for (let i = 0; i < 5; i++){
-    rspHuman = getHumanChoice();
-    rspComputer = getComputerChoice();
-    console.log(rspComputer);
-    console.log(rspHuman);
-
-    result = playRound(rspHuman, rspComputer);
-    console.log(result);
-
-    switch(result) {
-        case "Win":
-            humanScore++;
-            break;
-        case "Lose":
-            computerScore++;
-            break;
-        case "Tie":
-            break;
-    }
-}
+const rockBtn = document.querySelector("#rockBtn");
+const paperBtn = document.querySelector("#paperBtn");
+const scissorsBtn = document.querySelector('#scissorBtn');
 
 
 
-console.log("Your score " + humanScore + " Computer score " + computerScore);
+rockBtn.addEventListener('click', () => {
+    result = handleClick("rock") 
+    console.log(result);   
+});
+
+paperBtn.addEventListener('click', () => {
+    result = handleClick("paper")
+    console.log(result);    
+});
+
+scissorsBtn.addEventListener('click', () => {
+    result = handleClick("scissors") 
+    console.log(result);   
+});
+
+
+
+
+
+// for (let i = 0; i < 5; i++){
+//     rspHuman = getHumanChoice();
+//     rspComputer = getComputerChoice();
+//     console.log(rspComputer);
+//     console.log(rspHuman);
+
+//     result = playRound(rspHuman, rspComputer);
+//     console.log(result);
+
+//     switch(result) {
+//         case "Win":
+//             humanScore++;
+//             break;
+//         case "Lose":
+//             computerScore++;
+//             break;
+//         case "Tie":
+//             break;
+//     }
+// }
+
+//console.log("Your score " + humanScore + " Computer score " + computerScore);
