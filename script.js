@@ -65,17 +65,38 @@ const scissorsBtn = document.querySelector('#scissorBtn');
 
 rockBtn.addEventListener('click', () => {
     result = handleClick("rock") 
-    console.log(result);   
+    console.log(result);  
+    if (result == "Win"){
+        humanScore ++;
+    } else {
+        computerScore ++;
+    }  
+    document.getElementById("hScore").textContent = humanScore;
+    document.getElementById("cScore").textContent = computerScore;
 });
 
 paperBtn.addEventListener('click', () => {
     result = handleClick("paper")
-    console.log(result);    
+    console.log(result); 
+    if (result == "Win"){
+        humanScore ++;
+    } else {
+        computerScore ++;
+    }  
+    document.getElementById("hScore").textContent = humanScore;
+    document.getElementById("cScore").textContent = computerScore;
 });
 
 scissorsBtn.addEventListener('click', () => {
     result = handleClick("scissors") 
-    console.log(result);   
+    console.log(result); 
+    if (result == "Win"){
+        humanScore ++;
+    } else {
+        computerScore ++;
+    }  
+    document.getElementById("hScore").textContent = humanScore;
+    document.getElementById("cScore").textContent = computerScore;
 });
 
 
